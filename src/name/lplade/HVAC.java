@@ -1,4 +1,4 @@
-
+package name.lplade;
 
 import java.util.LinkedList;
 import java.util.Date;
@@ -92,7 +92,7 @@ public class HVAC {
                 //Print all service calls
                 case 4: {
 
-                    System.out.println("Today's service calls are: ");
+                    System.out.println("**** Today's service calls are: ****");
 
                     if (todayServiceCalls.isEmpty()) {
                         System.out.println("No service calls today");
@@ -100,13 +100,13 @@ public class HVAC {
                     }
 
                     for (int call = 0; call < todayServiceCalls.size() ; call++) {
-                        System.out.println("Service Call " + call + "\n" + todayServiceCalls.get(call) + "\n");
+                        System.out.println("=== SERVICE CALL " + call + " ===\n" + todayServiceCalls.get(call) + "\n");
                     }
                     break;
                 }
 
                 case 5: {
-                    System.out.println("List of resolved calls: ");
+                    System.out.println("**** List of resolved calls: ****");
 
                     if (resolvedServiceCalls.isEmpty()) {
                         System.out.println("No resolved calls");
@@ -201,6 +201,9 @@ public class HVAC {
                 double age = getPositiveDoubleInput();
 
                 WaterHeater heater = new WaterHeater(address, problem, new Date(), age);
+                todayServiceCalls.add(heater);
+                System.out.println("Adding the following water heater to list of calls:\n" + heater);
+                break;
             }
             case 4: {
                 return;

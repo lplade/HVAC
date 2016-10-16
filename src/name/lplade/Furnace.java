@@ -1,4 +1,4 @@
-
+package name.lplade;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -6,11 +6,11 @@ import java.util.Date;
 import java.util.HashMap;
 
 
-public class Furnace extends ServiceCall {
+class Furnace extends ServiceCall {
 
     private int furnaceType;
 
-    public Furnace(String serviceAddress, String problemDescription, Date date, int furnaceType) {
+    Furnace(String serviceAddress, String problemDescription, Date date, int furnaceType) {
 
         super(serviceAddress, problemDescription, date);
 
@@ -42,11 +42,11 @@ public class Furnace extends ServiceCall {
     //Inner class to collect the different varieties of furnace
     //When we ask for the type, we'll use the constants from this class to display the choice of types.
 
-    protected static class FurnaceTypeManager {
+    static class FurnaceTypeManager {
 
-        protected static final int FORCED_AIR = 1;
-        protected static final int BOILER = 2;
-        protected static final int GRAVITY = 3;
+        static final int FORCED_AIR = 1;
+        static final int BOILER = 2;
+        static final int GRAVITY = 3;
 
         static HashMap<Integer, String> furnaceTypes;
 
@@ -58,7 +58,7 @@ public class Furnace extends ServiceCall {
             furnaceTypes.put(GRAVITY, "Gravity Feed (the older 'octopus' style)");
         }
 
-        public static String getTypeString(int typeInt) {
+        static String getTypeString(int typeInt) {
 
             if (furnaceTypes.containsKey(typeInt)) {
                 return furnaceTypes.get(typeInt);
@@ -69,7 +69,7 @@ public class Furnace extends ServiceCall {
 
         }
 
-        public static String furnaceTypeUserChoices() {
+        static String furnaceTypeUserChoices() {
 
             //Get all of the keys from the Hashmap and sort them in order
             ArrayList<Integer> keys = new ArrayList<Integer>(furnaceTypes.keySet());
